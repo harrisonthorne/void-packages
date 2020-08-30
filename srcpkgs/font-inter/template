@@ -1,0 +1,27 @@
+# Template file for 'font-inter'
+pkgname=font-inter
+version=3.15
+revision=1
+archs="noarch"
+depends="font-util"
+short_desc="Typeface specially designed for user interfaces"
+maintainer="Harrison Thorne <harrisonthorne@protonmail.com>"
+license="OFL-1.1"
+homepage="https://rsms.me/inter/"
+distfiles="https://github.com/rsms/inter/releases/download/v${version}/Inter-${version}.zip"
+checksum=1534288eb599f57acbf2c5ac0010da9495c2ee53116e08d799555c6f8ee22156
+create_wrksrc=yes
+
+font_dirs="/usr/share/fonts/Inter/"
+
+post_extract() {
+    ls
+    mv "Inter Desktop" "Inter-Desktop"
+}
+
+do_install() {
+    ls
+    vmkdir ${font_dirs}
+    vcopy Inter-Desktop/Inter-* ${font_dirs}
+    vlicense LICENSE.txt
+}
