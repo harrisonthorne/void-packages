@@ -1,0 +1,27 @@
+# Template file for 'steinberg-vst36'
+pkgname=steinberg-vst36
+version=3.6.7
+revision=1
+wrksrc="VST_SDK"
+short_desc="Steinberg's VST SDK (version 3.6)"
+maintainer="Harrison Thorne <harrisonthorne@protonmail.com>"
+license="custom:Steinberg"
+homepage="http://www.steinberg.net/en/company/developers.html"
+distfiles="https://www.steinberg.net/sdk_downloads/vstsdk367_03_03_2017_build_352.zip"
+checksum=5e8f1058177472f6dd3b5c1e7f8e0e76f37c5f751fed65936e04ff2441ce831a
+
+do_install() {
+	ls VST2_SDK/public.sdk/source/vst2.x
+	vmkdir usr/include/vst36/pluginterfaces/vst2.x
+
+
+	# vinstall "VST2_SDK/public.sdk/source/vst2.x/*" 644 "usr/include/vst36/"
+	install -m644 VST2_SDK/public.sdk/source/vst2.x/* "${DESTDIR}/usr/include/vst36/"
+
+	# vinstall "VST2_SDK/pluginterfaces/vst2.x/*" 644 "usr/include/vst36/pluginterfaces/vst2.x/"
+	install -m644 VST2_SDK/pluginterfaces/vst2.x/* "${DESTDIR}/usr/include/vst36/pluginterfaces/vst2.x/"
+
+	# vlicense VST3_SDK/doc/*License*
+	vmkdir usr/share/licenses/${pkgname}
+	install -m644 VST3_SDK/doc/*License* "${DESTDIR}/usr/share/licenses/${pkgname}/"
+}
