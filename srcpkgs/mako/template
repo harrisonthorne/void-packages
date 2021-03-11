@@ -1,6 +1,7 @@
 # Template file for 'mako'
 pkgname=mako
-version=1.4.1
+version=1.5.2021.3.11
+_commit=6d743d272e277c74246642f14b5ba2a8fc202919
 revision=1
 build_style=meson
 configure_args="-Dzsh-completions=true -Dapparmor=true -Dwerror=false"
@@ -11,8 +12,10 @@ short_desc="Lightweight Wayland notification daemon"
 maintainer="Emerson Ferreira <me@skrps.me>"
 license="MIT"
 homepage="https://mako-project.org/"
-distfiles="https://github.com/emersion/${pkgname}/archive/v${version}.tar.gz"
-checksum=27ab63264a74389de2119393fe64fd578a4c1d04c8409990ef7cfbb6eb9309bb
+distfiles="https://github.com/emersion/mako/archive/${_commit}.tar.gz"
+checksum=55c12d2a209f039fc50b833f0942bbb40c40c5026ef291e2a8a5b03bbd53d94c
+conflicts="mako"
+wrksrc="mako-${_commit}"
 
 conf_files="/etc/apparmor.d/local/fr.emersion.Mako"
 
