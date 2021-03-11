@@ -1,6 +1,6 @@
 # Template file for 'neovim'
 pkgname=neovim
-_commit="ce70edb80e965c90fadafea72d758b4d2d531077"
+_commit="097ec71bd82840996e4ba06d0006850b0ad7b5d1"
 version=0.5
 revision=2
 build_style=cmake
@@ -14,7 +14,7 @@ maintainer="Steve Prybylski <saprybylx@gmail.com>"
 license="Apache-2.0, custom:Vim"
 homepage="https://neovim.io"
 distfiles="https://github.com/neovim/neovim/archive/${_commit}.tar.gz"
-checksum=473ff73fb4ad27d8d922e1a4af7a99e56ce95d3f9920b07115a5ba26841c1ad3
+checksum=adb8003a4b44ad70ffcf140eb81be6fe6890fe5610cd7074f5285185ef7c2738
 wrksrc="${pkgname}-${_commit}"
 
 alternatives="
