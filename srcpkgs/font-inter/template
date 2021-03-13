@@ -2,7 +2,7 @@
 pkgname=font-inter
 version=3.15
 revision=1
-archs="noarch"
+archs="*"
 depends="font-util"
 short_desc="Typeface specially designed for user interfaces"
 maintainer="Harrison Thorne <harrisonthorne@protonmail.com>"
