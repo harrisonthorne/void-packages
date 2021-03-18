@@ -1,0 +1,21 @@
+# Template file for 'font-mdi'
+pkgname=font-mdi
+version=5.5.55
+revision=1
+archs="*"
+wrksrc="MaterialDesign-Webfont-${version}"
+depends="font-util"
+short_desc="Community-made Material Design Icons"
+maintainer="Harrison Thorne <harrisonthorne@protonmail.com>"
+license="OFL-1.1-RFN"
+homepage="http://materialdesignicons.com/"
+distfiles="https://github.com/Templarian/MaterialDesign-Webfont/archive/v${version}.tar.gz"
+checksum=26f267e7e488aa7dd933e97c71c4738dbf29f964ed92b03f8d35cf6c24743a40
+
+font_dirs="/usr/share/fonts/TTF"
+
+do_install() {
+	vinstall fonts/materialdesignicons-webfont.ttf 644 ${font_dirs} MaterialDesignIcons.ttf
+	vlicense license.md
+	vdoc README.md
+}
