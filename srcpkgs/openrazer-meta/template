@@ -1,19 +1,22 @@
 # Template file for 'openrazer-meta'
 pkgname=openrazer-meta
-version=2.9.0
+version=2.9.9999
 revision=1
 wrksrc="openrazer-${version}"
 build_style=gnu-makefile
 make_install_target="setup_dkms udev_install daemon_install xdg_install
  python_library_install"
 hostmakedepends="python3-setuptools"
+makedepends="git"
 depends="python3-openrazer"
 short_desc="Meta package for installing all required OpenRazer packages"
 maintainer="Luca Weiss <luca@z3ntu.xyz>"
 license="GPL-2.0-or-later"
 homepage="https://openrazer.github.io"
-distfiles="https://github.com/openrazer/openrazer/releases/download/v${version}/openrazer-${version}.tar.xz"
-checksum=c2b52debfd16ae1f319720c1db294f1d8a274b4a5736ac8a3eb27a680180254b
+
+do_fetch() {
+	git clone "https://github.com/openrazer/openrazer" ${wrksrc}
+}
 
 do_build() {
 	:
